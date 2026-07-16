@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suyasha Ghimire, Ethical Hacker & Security Enthusiast</title>
+<style>
+/* ===========================================================
+   Suyasha Ghimire, Security Portfolio
+   Girly-cyber direction: dark plum base, hot-pink + lavender
+   dual accent, soft pill chips as the signature motif
+=========================================================== */
+
+:root{
+  --bg:        #120a10;
+  --bg-raised: #1c1019;
+  --line:      #34202c;
+  --text:      #f7eef4;
+  --text-dim:  #c3a0b7;
+  --text-dimmer: #87607a;
+  --accent:    #ff5fad;
+  --accent-soft: rgba(255,95,173,0.12);
+  --accent-dim: #c44d8a;
+  --accent2:   #c9a6ff;
+  --accent2-soft: rgba(201,166,255,0.12);
+
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  --mono: 'Cascadia Code', 'SF Mono', 'Consolas', 'Courier New', monospace;
+  --sans: -apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap{
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
+
+/* ---------- topbar ---------- */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(10,14,15,0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.brand{
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.topnav{ display: flex; gap: 26px; }
+.topnav a{
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--text-dim);
+  letter-spacing: 0.01em;
+}
+.topnav a:hover{ color: var(--accent); text-decoration: none; }
+
+/* ---------- hero ---------- */
+.hero{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 72px 32px 76px;
+  min-height: 56vh;
+}
+.hero h1{
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  margin: 0 0 28px;
+}
+.byline-pill{
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 100px;
+  padding: 9px 18px;
+  box-shadow: 0 0 24px -8px var(--accent);
+}
+
+.hero-photo{ position: relative; }
+.oval-frame{
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3/4;
+  border-radius: 50% / 42%;
+  overflow: hidden;
+  background: linear-gradient(165deg, #341a29, #190f15);
+  border: 1.5px solid var(--accent-dim);
+  margin: 0 auto;
+  box-shadow: 0 40px 80px -30px rgba(255,95,173,0.15);
+  position: relative;
+}
+.oval-frame--small{ max-width: 220px; }
+.oval-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92) contrast(1.03);
+}
+.oval-frame--small .oval-img{
+  filter: saturate(0.95) contrast(1.02);
+}
+.oval-frame::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, rgba(255,95,173,0.10), transparent 45%, rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+.oval-placeholder{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--accent);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255,95,173,0.22), transparent 60%);
+}
+.cta-arrow{
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* ---------- who ---------- */
+.who{
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  gap: 48px;
+  padding: 56px 32px;
+  border-top: 1px solid var(--line);
+}
+.who h2{
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+.who-text p{
+  color: var(--text-dim);
+  font-size: 16px;
+  max-width: 480px;
+}
+
+/* ---------- section titles ---------- */
+.section-title{
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 500;
+  margin: 0 0 40px;
+}
+
+/* ---------- certifications: plain list, no frames ---------- */
+.certs{ padding: 56px 32px; border-top: 1px solid var(--line); }
+.cert-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cert-item{
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.cert-item:first-child{ padding-top: 0; }
+.cert-item:last-child{ border-bottom: none; }
+.callout-label{
+  font-size: 16px;
+  color: var(--text);
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+.callout-meta{
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-dimmer);
+  margin: 0;
+}
+
+/* ---------- background section ---------- */
+.background{ padding: 56px 32px; border-top: 1px solid var(--line); }
+.background-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.bg-label{
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+.bg-label--alt{ color: var(--accent2); }
+.bg-col ul{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-dim);
+  font-size: 14.5px;
+}
+.bg-col li{ margin-bottom: 12px; }
+
+/* ---------- skills gallery ---------- */
+.skills{ padding: 56px 32px; border-top: 1px solid var(--line); }
+.skill-gallery{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 64px;
+}
+.skill-tile{
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px 20px;
+  background: var(--bg-raised);
+}
+.skill-tile:nth-child(even){
+  border-color: var(--accent2-soft);
+}
+.skill-tile:nth-child(even) .skill-tag{
+  color: var(--accent2);
+}
+.skill-tag{
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+.skill-list{
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.quote{
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 500;
+  color: var(--text);
+  max-width: 640px;
+  line-height: 1.25;
+}
+
+/* ---------- languages ---------- */
+.languages.wrap{ padding: 56px 32px; border-top: 1px solid var(--line); }
+.lang-row{
+  display: flex;
+  gap: 28px;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-top: 18px;
+}
+
+/* ---------- contact / footer ---------- */
+.contact.wrap{
+  padding: 56px 32px 64px;
+  border-top: 1px solid var(--line);
+}
+.contact h2{
+  font-family: var(--serif);
+  font-size: clamp(36px, 5.5vw, 56px);
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 0 0 36px;
+}
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.contact-label{
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dimmer);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 8px;
+}
+.contact-grid p:last-child{ margin: 0; font-size: 15px; color: var(--text); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px){
+  .hero{ grid-template-columns: 1fr; padding: 64px 24px 72px; text-align: left; }
+  .hero-photo{ order: -1; }
+  .who{ grid-template-columns: 1fr; padding: 56px 24px; }
+  .who-photo{ order: -1; }
+  .background-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .skill-gallery{ grid-template-columns: repeat(2, 1fr); }
+  .contact-grid{ grid-template-columns: 1fr; gap: 24px; }
+  .wrap{ padding: 0 24px; }
+  .topbar-inner{ padding: 16px 24px; }
+  .topnav{ gap: 16px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="brand">Suyasha Ghimire</span>
+    <nav class="topnav">
+      <a href="#about">About</a>
+      <a href="#certs">Certifications</a>
+      <a href="#skills">Skills</a>
+      <a href="#log">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero wrap" id="about">
+    <div class="hero-text">
+      <h1>Welcome to<br>My Security<br>Portfolio</h1>
+      <div class="byline-pill">Suyasha Ghimire / Ethical Hacker</div>
+    </div>
+    <div class="hero-photo">
+      <div class="oval-frame">
+        <img src="images/who-photo.png" alt="Illustration of a developer at a laptop" class="oval-img">
+      </div>
+      <p class="cta-arrow">Work with me today:</p>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section class="who wrap">
+    <div class="who-photo">
+      <div class="oval-frame oval-frame--small">
+        <img src="images/hero-photo.jpg" alt="Suyasha Ghimire" class="oval-img">
+      </div>
+    </div>
+    <div class="who-text">
+      <h2>Who is<br>Suyasha?</h2>
+      <p>
+        I'm a second-year BIT student and cybersecurity enthusiast with hands-on training in
+        ethical hacking, vulnerability assessment, and penetration testing. Certified through
+        Women in Cyber Security Nepal and Broadway Infosys, with practical exposure to network
+        defense and threat analysis. I bring a collaborative mindset and fresh perspective to
+        every team I join.
+      </p>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS as callout grid -->
+  <section class="certs wrap" id="certs">
+    <h2 class="section-title">My Certifications</h2>
+    <ul class="cert-list">
+
+      <li class="cert-item">
+        <p class="callout-label">Advanced Ethical Hacking: a 6-week bootcamp</p>
+        <p class="callout-meta">Women in Cyber Security (WiCS) Nepal · 2025</p>
+      </li>
+
+      <li class="cert-item">
+        <p class="callout-label">Defensive Techniques Course: network defense</p>
+        <p class="callout-meta">Code IT, Dharan · 2025</p>
+      </li>
+
+      <li class="cert-item">
+        <p class="callout-label">Professional C/C++: a 68-hour programme</p>
+        <p class="callout-meta">Broadway Infosys · 2024</p>
+      </li>
+
+      <li class="cert-item">
+        <p class="callout-label">Game Dev Workshop: built in Unity with C#</p>
+        <p class="callout-meta">Model Institute of Technology · 2024</p>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- BACKGROUND: education + experience as arrow list -->
+  <section class="background wrap">
+    <h2 class="section-title">My Background</h2>
+    <div class="background-grid">
+      <div class="bg-col">
+        <p class="bg-label">Education:</p>
+        <ul>
+          <li>Bachelor in Information Technology: Model Institute of Technology, Kathmandu, 2024–2028</li>
+          <li>+2 Science: Global School of Science, Mid-Baneshwor</li>
+          <li>School Level: St. Mary's School, Jawalakhel</li>
+        </ul>
+      </div>
+      <div class="bg-col">
+        <p class="bg-label bg-label--alt">Experience:</p>
+        <ul>
+          <li>Game Development Workshop, Model Institute of Technology, 2024; built playable Unity games in C#, applying OOP principles</li>
+          <li>Robotics Workshop, Model Institute of Technology, 2024; built an automatic night-light system with Arduino</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS gallery -->
+  <section class="skills wrap" id="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skill-gallery">
+
+      <div class="skill-tile">
+        <p class="skill-tag">Security:</p>
+        <p class="skill-list">Ethical Hacking, VAPT, Network Security, Threat Detection, Cyber Defense</p>
+      </div>
+
+      <div class="skill-tile">
+        <p class="skill-tag">Programming:</p>
+        <p class="skill-list">C, C++, Python, C# (Unity), HTML, JavaScript, Java</p>
+      </div>
+
+      <div class="skill-tile">
+        <p class="skill-tag">Tools & OS:</p>
+        <p class="skill-list">Kali Linux, Ubuntu, Arduino, Unity, MS Office Suite</p>
+      </div>
+
+      <div class="skill-tile">
+        <p class="skill-tag">Soft Skills:</p>
+        <p class="skill-list">Communication, Leadership, Problem Solving, Adaptability, Teamwork</p>
+      </div>
+
+    </div>
+
+    <p class="quote">Defense speaks where words are unable to explain.</p>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="languages wrap" id="log">
+    <h2 class="section-title">Languages</h2>
+    <div class="lang-row">
+      <span>English</span>
+      <span>Nepali</span>
+      <span>Hindi</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACT -->
+<footer class="contact wrap" id="contact">
+  <h2>Reach Out<br>to Me</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-label">Address</p>
+      <p>Mulpani, Kathmandu, Nepal</p>
+    </div>
+    <div>
+      <p class="contact-label">Email</p>
+      <p><a href="mailto:ghimiresuyasha@gmail.com">ghimiresuyasha@gmail.com</a></p>
+    </div>
+    <div>
+      <p class="contact-label">Phone</p>
+      <p>+977-9863193555</p>
+    </div>
+  </div>
+  <p class="cta-arrow">Let's collaborate: <a href="https://www.linkedin.com/in/suyasha-ghimire-4a4433313" target="_blank" rel="noopener">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
