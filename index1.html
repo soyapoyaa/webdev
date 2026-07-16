@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suyasha Ghimire | Security Portfolio</title>
- 
+    <link rel="stylesheet" href="css/index1.css" />
 </head>
 <body>
 
@@ -16,6 +17,7 @@
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -27,15 +29,16 @@
     <section id="home">
       <h1>Welcome to My Security Portfolio</h1>
       <p>Suyasha Ghimire / Ethical Hacker</p>
-      <img src="image/hero.png" alt="Suyasha Ghimire" class="profile-photo" width="180" />
+      <img src="image/hero.png" alt="Suyasha Ghimire" />
       <p>Mindset of a developer at a hacker's pace.</p>
     </section>
 
     <!-- ABOUT -->
     <section id="about">
-      <img src="image/who.jpg" alt="Suyasha Ghimire" class="profile-photo" width="170" />
-      <h2>Who is Suyasha?</h2>
+      <h2><span>About Me</span></h2>
+      <img src="image/who.jpg" alt="Suyasha Ghimire" />
       <article>
+        <h3>Who is Suyasha?</h3>
         <p>
           I'm a third-year BIT student and cybersecurity enthusiast with hands-on training in
           ethical hacking, vulnerability assessment, and penetration testing. Certified through
@@ -48,7 +51,7 @@
 
     <!-- CERTIFICATIONS -->
     <section id="certifications">
-      <h2>My Certifications</h2>
+      <h2><span>My Certifications</span></h2>
 
       <article>
         <h3>Advanced Ethical Hacking: a 6-week bootcamp</h3>
@@ -66,125 +69,178 @@
       </article>
 
       <article>
-        <h3>Game Dev Workshop: built in Unity with C#</h3>
-        <p>Model Institute of Technology &middot; 2024</p>
+        <h3>AWS Academy Cloud Foundations</h3>
+        <p>AWS Academy &middot; 2026</p>
+      </article>
+
+      <article>
+        <h3>AWS Academy Cloud Security</h3>
+        <p>AWS Academy &middot; 2026</p>
       </article>
     </section>
 
     <!-- BACKGROUND / EXPERIENCE -->
     <section id="experience">
-      <h2>My Background</h2>
+      <h2><span>My Background</span></h2>
 
-      <h3>Education</h3>
-      <dl>
-        <dt>Bachelor in Information Technology</dt>
-        <dd>Model Institute of Technology, Kathmandu, 2024&ndash;2028</dd>
+      <div class="edu-col">
+        <h3>Education</h3>
+        <dl>
+          <dt>Bachelor in Information Technology</dt>
+          <dd>Model Institute of Technology, Kathmandu, 2024&ndash;2028</dd>
 
-        <dt>+2 Science</dt>
-        <dd>Global School of Science, Mid-Baneshwor</dd>
+          <dt>+2 Science</dt>
+          <dd>Global School of Science, Mid-Baneshwor</dd>
 
-        <dt>School Level</dt>
-        <dd>St. Mary's School, Jawalakhel</dd>
-      </dl>
+          <dt>School Level</dt>
+          <dd>St. Mary's School, Jawalakhel</dd>
+        </dl>
+      </div>
 
-      <h3>Experience</h3>
-      <article>
-        <h4>Game Development Workshop</h4>
-        <p>Model Institute of Technology, 2024 &mdash; built playable Unity games in C#, applying OOP principles</p>
-      </article>
+      <div class="exp-col">
+        <h3>Experience</h3>
+        <article>
+          <h4>Game Development Workshop</h4>
+          <p>Model Institute of Technology, 2024 &mdash; built playable Unity games in C#, applying OOP principles</p>
+        </article>
 
-      <article>
-        <h4>Robotics Workshop</h4>
-        <p>Model Institute of Technology, 2024 &mdash; built an automatic night-light system with Arduino</p>
-      </article>
+        <article>
+          <h4>Robotics Workshop</h4>
+          <p>Model Institute of Technology, 2024 &mdash; built an automatic night-light system with Arduino</p>
+        </article>
+      </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
-      <h2>My Skills</h2>
+      <h2><span>My Skills</span></h2>
 
-      <dl>
-        <dt>Security</dt>
-        <dd>Ethical Hacking, VAPT, Network Security, Threat Detection, Cyber Defense</dd>
+      <dl class="skills-grid">
+        <div class="skills-card">
+          <dt>Security</dt>
+          <dd>Ethical Hacking, VAPT, Network Security, Threat Detection, Cyber Defense</dd>
+        </div>
 
-        <dt>Programming</dt>
-        <dd>C, C++, Python, C# (Unity), HTML, JavaScript, Java</dd>
+        <div class="skills-card">
+          <dt>Programming</dt>
+          <dd>C, C++, Python, C# (Unity), HTML, JavaScript, Java</dd>
+        </div>
 
-        <dt>Tools &amp; OS</dt>
-        <dd>Kali Linux, Ubuntu, Arduino, Unity, MS Office Suite</dd>
+        <div class="skills-card">
+          <dt>Tools &amp; OS</dt>
+          <dd>Kali Linux, Ubuntu, Arduino, Unity, MS Office Suite</dd>
+        </div>
 
-        <dt>Soft Skills</dt>
-        <dd>Communication, Leadership, Problem Solving, Adaptability, Teamwork</dd>
+        <div class="skills-card">
+          <dt>Soft Skills</dt>
+          <dd>Communication, Leadership, Problem Solving, Adaptability, Teamwork</dd>
+        </div>
       </dl>
 
       <p>Defense speaks where words are unable to explain.</p>
     </section>
 
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2><span>Projects</span></h2>
+
+      <article>
+        <h3>TESS Exoplanet Transit Analysis Pipeline</h3>
+        <p>
+          A Python pipeline using lightkurve and batman to compare fitted transit
+          depths against SPOC catalog values across roughly 30 TOI targets, revealing
+          a systematic depth offset linked to flux contamination from nearby stars.
+        </p>
+        <a href="https://github.com/soyapoyaa/tess-transit-pipeline" target="_blank" rel="noopener">
+          View Repository
+        </a>
+      </article>
+
+      <article>
+        <h3>Security Portfolio Website</h3>
+        <p>
+          This personal portfolio site, built with semantic HTML to showcase
+          certifications, technical skills, and hands-on cybersecurity coursework.
+        </p>
+        <a href="https://github.com/soyapoyaa/webdev" target="_blank" rel="noopener">
+          View Repository
+        </a>
+      </article>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
-      <h2>Languages</h2>
+      <h2><span>Languages</span></h2>
       <ul>
         <li>English</li>
         <li>Nepali</li>
         <li>Hindi</li>
       </ul>
 
-      <h2>Reach Out to Me</h2>
-      <dl>
-        <dt>Address</dt>
-        <dd>Mulpani, Kathmandu, Nepal</dd>
+      <h2><span>Reach Out to Me</span></h2>
 
-        <dt>Email</dt>
-        <dd><a href="mailto:ghimiresuyasha@gmail.com">ghimiresuyasha@gmail.com</a></dd>
+      <div class="contact-grid">
 
-        <dt>Phone</dt>
-        <dd>+977-9863193555</dd>
-      </dl>
+        <div class="contact-details">
+          <div class="detail-box">
+            <span class="detail-label">Phone</span>
+            <span class="detail-value">+977-9863193555</span>
+          </div>
 
-      <form>
-        <fieldset>
-          <legend>Send Me a Message</legend>
+          <div class="detail-box">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">
+              <a href="mailto:ghimiresuyasha@gmail.com">ghimiresuyasha@gmail.com</a>
+            </span>
+          </div>
 
-          <p>
-            <label for="full-name">Full Name</label><br />
-            <input type="text" id="full-name" name="full-name" required />
-          </p>
+          <div class="detail-box">
+            <span class="detail-label">LinkedIn</span>
+            <span class="detail-value">
+              <a href="https://linkedin.com/in/suyasha-ghimire" target="_blank" rel="noopener">suyasha-ghimire</a>
+            </span>
+          </div>
 
-          <p>
-            <label for="email">Email</label><br />
-            <input type="email" id="email" name="email" required />
-          </p>
+          <div class="detail-box">
+            <span class="detail-label">Location</span>
+            <span class="detail-value">Mulpani, Kathmandu</span>
+          </div>
+        </div>
 
-          <p>
-            <label for="message">Message</label><br />
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </p>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
 
-          <p>
-            <button type="submit">Submit</button>
-          </p>
-        </fieldset>
-      </form>
+          <label for="email-input">Email</label>
+          <input type="email" id="email-input" name="email" placeholder="you@company.com" required />
 
-      <ul class="social-links">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="What are you reaching out about?" required></textarea>
+
+          <button type="submit">Send message</button>
+        </form>
+
+      </div>
+
+      <ul class="social-icons">
         <li>
-          <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin"></i>
+          <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="https://cdn.simpleicons.org/facebook/d98fae" width="26" height="26" alt="Facebook" />
           </a>
         </li>
         <li>
           <a href="mailto:ghimiresuyasha@gmail.com" aria-label="Gmail">
-            <i class="fa-solid fa-envelope"></i>
+            <img src="https://cdn.simpleicons.org/gmail/d98fae" width="26" height="26" alt="Gmail" />
           </a>
         </li>
         <li>
-          <a href="#" target="_blank" rel="noopener" aria-label="LeetCode">
-            <i class="fa-brands fa-leetcode"></i>
+          <a href="https://github.com/soyapoyaa" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="https://cdn.simpleicons.org/github/d98fae" width="26" height="26" alt="GitHub" />
+          </a>
+        </li>
+        <li>
+          <a href="https://leetcode.com/" target="_blank" rel="noopener" aria-label="LeetCode">
+            <img src="https://cdn.simpleicons.org/leetcode/d98fae" width="26" height="26" alt="LeetCode" />
           </a>
         </li>
       </ul>
@@ -193,9 +249,8 @@
   </main>
 
   <footer>
-    <p>&copy; <span id="year"></span> Suyasha Ghimire</p>
+    <p>&copy; 2026 Suyasha Ghimire</p>
   </footer>
-
 
 </body>
 </html>

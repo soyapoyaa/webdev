@@ -1,8 +1,595 @@
-/* Structure only for now — sizing images so they don't break layout */
+/* Suyasha Ghimire — Security Portfolio (baby-pink dark editorial theme) */
 
-.profile-photo {
-  width: 250px;
-  height: 250px;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-base:      #150a14;   /* main section background, dark maroon-black */
+  --bg-header:    #0a0a0c;   /* nav bar, near pure black */
+  --bg-card:      #1c0f1b;   /* skill card / form panel */
+  --border:       #3a2438;   /* hairline borders / dividers */
+
+  --heading:      #f5e9ee;   /* serif headline color */
+  --body-text:    #c9a3b3;   /* muted mauve paragraph text */
+  --label:        #d98fae;   /* dusty pink labels (ADDRESS, EMAIL...) */
+  --pink:         #ec6ea0;   /* bright pink accent — links, email */
+  --purple:       #b391e8;   /* lavender accent — alternating labels */
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-mono:    'JetBrains Mono', Menlo, monospace;
+  --font-body:    'Inter', -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--body-text);
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.05rem);
+}
+
+a {
+  color: var(--pink);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Header ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem);
+  background-color: var(--bg-header);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 1vw + 0.9rem, 1.4rem);
+  color: var(--heading);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--label);
+}
+
+header nav a:hover {
+  color: var(--pink);
+}
+
+/* ---------- Main / sections ---------- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  color: var(--heading);
+  margin: 0 0 2rem;
+  line-height: 1.15;
+}
+
+/* underline only wraps the actual text, regardless of how wide
+   the parent h2 itself is stretched for layout purposes (grid/flex) */
+section h2 span {
+  display: inline-block;
+  border-bottom: 2px solid var(--pink);
+  padding-bottom: 0.5rem;
+}
+
+/* ---------- Hero ---------- */
+#home {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+  min-height: calc(100vh - 74px); /* fills the screen below the sticky header, so there's no dead gap before the next section */
+}
+
+#home h1 {
+  grid-column: 1;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4vw + 1rem, 3.4rem);
+  line-height: 1.2;
+  color: var(--heading);
+  margin: 0 0 1.25rem;
+}
+
+#home > p:first-of-type {
+  grid-column: 1;
+  color: var(--body-text);
+  font-size: 1.05rem;
+}
+
+#home > p:last-of-type {
+  grid-column: 1;
+  font-family: 'Cormorant Garamond', var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 1.2vw + 1rem, 1.6rem);
+  letter-spacing: 0.01em;
+  color: var(--pink);
+  margin-top: 2rem;
+}
+
+#home img {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  justify-self: center;
+  width: clamp(160px, 22vw, 320px);
+  height: clamp(200px, 27vw, 400px);
   object-fit: cover;
   border-radius: 50%;
+  border: 1px solid var(--pink);
+  box-shadow: 0 0 60px rgba(236, 110, 160, 0.15);
+}
+
+/* ---------- About ---------- */
+#about {
+  display: grid;
+  grid-template-columns: clamp(160px, 22vw, 260px) 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+#about h2 {
+  grid-column: 1 / -1;
+}
+
+#about img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--pink);
+  box-shadow: 0 0 60px rgba(236, 110, 160, 0.15);
+}
+
+#about article h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
+  color: var(--heading);
+  margin: 0 0 1rem;
+}
+
+#about article p {
+  margin: 0;
+  color: var(--body-text);
+}
+
+/* ---------- Certifications ---------- */
+#certifications article {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+#certifications article:last-of-type {
+  border-bottom: none;
+}
+
+#certifications h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+#certifications p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--label);
+}
+
+/* ---------- Background / Experience ---------- */
+#experience {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem); /* less trailing space than other sections */
+}
+
+#experience h2 {
+  width: 100%;
+}
+
+#experience .edu-col,
+#experience .exp-col {
+  flex: 1 1 260px; /* each column grows/shrinks independently and wraps below 700px */
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  background-color: var(--bg-card);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#experience h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--pink);
+  margin: 0 0 1.25rem;
+}
+
+#experience .exp-col h3 {
+  color: var(--purple);
+}
+
+#experience dl {
+  margin: 0;
+}
+
+#experience dt {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+#experience dd {
+  margin: 0 0 1.1rem;
+  color: var(--body-text);
+}
+
+#experience article {
+  margin-bottom: 1.25rem;
+}
+
+#experience h4 {
+  margin: 0 0 0.25rem;
+  color: var(--heading);
+  font-size: 1rem;
+}
+
+#experience article p {
+  margin: 0;
+  color: var(--body-text);
+}
+
+/* ---------- Skills ---------- */
+#skills .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin: 0 0 3rem;
+}
+
+#skills .skills-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  background-color: var(--bg-card);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#skills .skills-card dt {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--pink);
+  margin-bottom: 0.6rem;
+}
+
+/* alternate accent color per card */
+#skills .skills-card:nth-of-type(2n) dt {
+  color: var(--purple);
+}
+
+#skills .skills-card dd {
+  margin: 0;
+  color: var(--body-text);
+}
+
+#skills > p {
+  font-family: 'Cormorant Garamond', var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1vw + 0.85rem, 1.3rem);
+  color: var(--pink);
+  line-height: 1.4;
+  max-width: 600px;
+}
+
+/* ---------- Projects ---------- */
+#projects article {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  background-color: var(--bg-card);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#projects h3 {
+  margin: 0 0 0.5rem;
+  color: var(--heading);
+  font-size: 1.15rem;
+}
+
+#projects article p {
+  margin: 0 0 0.75rem;
+  color: var(--body-text);
+}
+
+#projects article a {
+  color: var(--pink);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+/* ---------- Contact ---------- */
+#contact ul.social-icons,
+#contact > ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: 0;
+  margin: 0 0 2.5rem;
+}
+
+/* thin divider between Languages and Reach Out to Me, matching the
+   border used between sections elsewhere on the page — uses a
+   ::before pseudo-element so it spans the full width, independent
+   of the heading's own inline-block underline */
+#contact h2:nth-of-type(2) {
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  position: relative;
+}
+
+#contact h2:nth-of-type(2)::before {
+  content: '';
+  display: block;
+  width: 100%;
+  border-top: 1px solid var(--border);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#contact > ul li {
+  font-family: var(--font-mono);
+  color: var(--label);
+  font-size: 0.95rem;
+}
+
+/* Two-column layout: contact detail boxes on the left, form on the
+   right. align-items: stretch (grid's default) makes both columns
+   the same height, whichever is taller. */
+#contact .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 2rem 0 2.5rem;
+  align-items: stretch;
+}
+
+/* Left column: stack of detail boxes, each stretched evenly (flex: 1)
+   so together they fill the same total height as the form column */
+#contact .contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#contact .detail-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--bg-card);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#contact .detail-box:hover {
+  border-color: var(--pink);
+  box-shadow: 0 0 24px rgba(236, 110, 160, 0.25);
+}
+
+#contact .detail-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+#contact .detail-value {
+  color: var(--heading);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+#contact .detail-value a {
+  color: var(--pink);
+}
+
+/* Right column: the form, styled as one box matching the detail boxes */
+#contact form {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#contact form:hover {
+  border-color: var(--pink);
+  box-shadow: 0 0 24px rgba(236, 110, 160, 0.25);
+}
+
+#contact form label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--label);
+  margin-bottom: -0.6rem;
+}
+
+#contact form input,
+#contact form textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--bg-base);
+  color: var(--heading);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+#contact form input::placeholder,
+#contact form textarea::placeholder {
+  color: var(--body-text);
+  opacity: 0.6;
+}
+
+#contact form textarea {
+  resize: vertical;
+  flex: 1;
+}
+
+#contact form input:focus,
+#contact form textarea:focus {
+  outline: none;
+  border-color: var(--pink);
+}
+
+#contact form button {
+  align-self: flex-start;
+  background-color: var(--pink);
+  color: #1a0d16;
+  border: none;
+  border-radius: 6px;
+  padding: 0.65rem clamp(1.25rem, 3vw, 1.75rem);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#contact form button:hover {
+  background-color: #f388b3;
+}
+
+/* Social icon links at the bottom of the section, above the footer */
+#contact .social-icons {
+  margin-top: 0.5rem;
+}
+
+#contact .social-icons a {
+  display: inline-flex;
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+#contact .social-icons a:hover {
+  filter: drop-shadow(0 0 8px var(--pink));
+  transform: translateY(-3px);
+}
+
+/* Glowing hover effect — applied to every card-style box on the page:
+   skills categories, project cards, and the Education/Experience boxes */
+#skills .skills-card:hover,
+#projects article:hover,
+#experience .edu-col:hover,
+#experience .exp-col:hover {
+  border-color: var(--pink);
+  box-shadow: 0 0 24px rgba(236, 110, 160, 0.25);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--label);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #home,
+  #about {
+    grid-template-columns: 1fr;
+  }
+
+  #experience .edu-col,
+  #experience .exp-col {
+    flex: 1 1 100%;
+  }
+
+  #home img,
+  #about img {
+    grid-column: 1;
+    grid-row: auto;
+    width: clamp(140px, 45vw, 220px);
+    height: clamp(180px, 55vw, 280px);
+    margin: 0 auto 1.5rem;
+  }
+
+  #about img {
+    aspect-ratio: 4 / 5;
+    height: auto;
+  }
+
+  #skills .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #contact .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
